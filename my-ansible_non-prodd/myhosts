@@ -1,0 +1,11 @@
+[web_ser]
+localhost
+[db_mysql]
+node1.ak2328.online
+[db_oracle]
+node2.ak2328.online
+
+[db:children]
+db_mysql
+db_oracle
+

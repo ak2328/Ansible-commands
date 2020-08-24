@@ -1,0 +1,6 @@
+--- 
+- name: Install through apt
+  hosts: lb 
+  become: yes
+  roles:
+     - nginx

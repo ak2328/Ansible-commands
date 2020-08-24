@@ -1,0 +1,7 @@
+---
+ - name: Hostname
+   hosts: all
+   tasks:
+    - command: hostname
+      register: out
+    - debug: var=out  

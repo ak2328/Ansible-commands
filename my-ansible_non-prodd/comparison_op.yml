@@ -1,0 +1,19 @@
+---
+ - name: Here to compare two variables
+   hosts: all
+   gather_facts: false
+   vars:
+    x: 4500
+    y: 8900
+   tasks:
+   - name: This will compare
+     debug:
+      msg:
+       - "A is {{x}} and B is {{y}}"
+       - "A==B: {{x==y}}"
+       - "A!=B: {{x!=y}}"
+       - "A>=B: {{x>=y}}"
+       - "A<=B: {{x<=y}}"
+       - "A>B: {{x>y}}"
+       - "A<B: {{x<y}}"
+       

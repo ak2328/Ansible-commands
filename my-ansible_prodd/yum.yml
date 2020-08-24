@@ -1,0 +1,16 @@
+---
+ - name: Install through yum
+   hosts: db
+   become: yes
+   tasks:
+     - yum: name={{item}} state=present update_cache=yes
+       with_items:
+           - httpd
+           - libapache2-mod-wsgi
+           - python-pip
+           - python-virtualenv
+           
+
+       become: yes 
+
+     

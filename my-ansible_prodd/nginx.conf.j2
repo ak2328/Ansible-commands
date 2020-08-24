@@ -1,0 +1,25 @@
+upstream demo {
+
+{% for server in groups.wb %}
+
+   server {{ server }};
+
+
+   {% endfor %}
+
+}
+
+server {
+    listen 80;
+
+    location / {
+
+        proxy_pass http://demo;
+
+    }
+
+    }
+
+
+
+

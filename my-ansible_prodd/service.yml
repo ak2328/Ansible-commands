@@ -1,0 +1,7 @@
+---
+ - name: start {{Ng1}}
+   hosts: db
+   become: yes
+   tasks: 
+     - yum: name={{Ng1}} state=latest 
+     - service: name={{Ng}} state={{St}} enabled=yes

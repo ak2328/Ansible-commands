@@ -1,0 +1,20 @@
+---
+ - name: just seeing input output
+   hosts: all
+   vars:
+    x: 45
+    my_name: "Amit"
+   vars_prompt:
+    - name: user_name
+      prompt: Enter your user name
+      private: no
+    - name: password
+      prompt: Enter your password
+
+   gather_facts: false
+   tasks:
+    - debug:
+       msg:
+        - "The username is {{user_name}}"
+        - "The password  value is: {{password}}"
+        

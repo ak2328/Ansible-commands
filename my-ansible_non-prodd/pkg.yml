@@ -1,0 +1,10 @@
+---
+ - name: This is to install and uninstall packages
+   hosts: node1.ak2328.online
+   gather_facts: false
+   become: yes #sudo permission
+   tasks:
+    - name: working with {{pkg}}
+      yum:
+       name: "{{pkg}}"
+       state: "{{state}}"

@@ -1,0 +1,5 @@
+---
+ MYSQL_USER: root
+ MYSQL_PASSWORD: root
+ DB_USER: demo  
+ DB_PASSWORD: demo

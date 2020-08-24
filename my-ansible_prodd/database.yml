@@ -1,0 +1,12 @@
+---
+ - name: Database
+   hosts: db
+   become: yes     
+   roles:
+        - role: mysql
+          db_user_name: demo
+          db_user_pass: demo
+          db_user_host: '%'  
+          mysql_user: "{{ MYSQL_USER }}"
+          mysql_pass: "{{ MYSQL_PASSWORD }}"
+   

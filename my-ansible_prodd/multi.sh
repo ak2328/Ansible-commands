@@ -1,0 +1,2 @@
+uptime
+free -m

@@ -1,0 +1,16 @@
+---
+ - name: copy source
+   copy: src=demo/app/ dest=/var/www/demo mode=0755
+   notify: restart apache
+
+ - name: copy demo.wsgi
+   template: src=demo.wsgi.j2 dest=/var/www/demo/demo.wsgi mode=0755
+   notify: restart apache 
+
+ - name: copy apache virtul host config
+   copy: src=demo/demo.conf dest=/etc/apache2/sites-available mode=0755
+   notify: restart apache
+
+ - name: setting python env
+   pip: requirements=/var/www/demo/requirements.txt virtualenv=/var/www/demo/.venv
+   notify: restart apache 

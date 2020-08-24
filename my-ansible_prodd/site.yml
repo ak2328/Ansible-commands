@@ -1,0 +1,10 @@
+---
+ - name: cache
+   hosts: wb
+   gather_facts: false
+   tasks:
+     - apt: update_cache=yes cache_valid_time=84600
+ - include: control.yml
+ - include: webserver.yml
+ - include: lb_nginx.yml
+ - include: database.yml

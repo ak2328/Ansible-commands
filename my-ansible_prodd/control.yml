@@ -1,0 +1,6 @@
+--- 
+- name: Install through apt
+  hosts: local 
+  become: yes
+  roles:
+    - local

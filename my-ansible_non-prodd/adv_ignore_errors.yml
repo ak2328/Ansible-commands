@@ -1,0 +1,32 @@
+---
+ - name: Advance level
+   hosts: all
+   gather_facts: yes
+   become: yes
+   tasks:
+    - block:
+        - name: For Redhat family install httpd
+          yum:
+           name: httpd
+           state: latest
+        
+        - name: Starting httpd
+          service:
+             name: httpd
+             state: started
+      become: yes   
+      when: ansible_os_family == "RedHat"   
+
+    - block:
+        - name: For Redhat family install apache2
+          yum:
+            name: apache2
+            state: latest
+             
+        - name: Starting apache2
+          service:
+             name: apache2
+             state: started
+      become: yes   
+      when: ansible_os_family == "Debian"      
+     

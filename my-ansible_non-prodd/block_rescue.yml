@@ -1,0 +1,20 @@
+---
+ - name: Block and rescue
+   hosts: localhost
+   tasks:
+     - block:
+        - name: Finding folders
+          command: ls /home/ansadmin/my-ansible_non-prodd/demo
+          register: one
+        - debug: var=one  
+     
+       rescue:
+        - debug:
+            msg: "This is not a valid path"
+       always:
+        - debug:
+            msg: "This will always execute"    
+           
+         
+
+ 

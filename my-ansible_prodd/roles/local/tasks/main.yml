@@ -1,0 +1,7 @@
+---
+  - name: installing tools
+    yum: name={{item}} state=present 
+    with_items:
+           - python-httplib2
+           - curl
+    tags: [ 'packages' ]       

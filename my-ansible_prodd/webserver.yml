@@ -1,0 +1,10 @@
+---
+ - name: Install through apt
+   hosts: wb
+   become: yes
+   roles:
+      - apache2
+      - demo-app
+          
+
+     

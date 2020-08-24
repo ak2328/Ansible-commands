@@ -1,0 +1,6 @@
+---
+  db_name: demo
+  db_pass: "{{ encrypt_db_pass }}"
+  db_user: demo
+  MYSQL_USER: root
+  MYSQL_PASSWORD: root

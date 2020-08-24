@@ -1,0 +1,13 @@
+---
+- name : "This is the name for this entire playbook"
+  hosts: all
+  tasks:
+  - name : "This is the nae for tasks"
+    debug:
+      msg:
+      -  "Welcome to ansible playbooks"
+      -  "Now it's time to check"
+      -  "yes yes yes"
+          
+
+          

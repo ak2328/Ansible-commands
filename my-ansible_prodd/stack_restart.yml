@@ -1,0 +1,56 @@
+--- 
+ - name: For lb
+   hosts: lb
+   become: true
+   tasks:
+        - name: nginx
+          service: name=nginx state=stopped
+        - wait_for: port=80 state=drained
+ - name: For lb
+   hosts: lb
+   become: true
+   tasks:
+     - name: nginx
+       service: name=nginx state=stopped
+     - wait_for: port=80 state=drained
+
+ - name: For wb
+   hosts: wb
+   become: true
+   tasks:
+     - name: apache
+       service: name=apache2 state=stopped
+     - wait_for: port=80 state=stopped
+       changed_when: false
+       tags: ['configure']
+
+ - name: For db
+   hosts: db
+   become: true
+   tasks:
+     - name: mysql-server
+       service: name=mysql state=restarted
+     - wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 
+
+ - name: For wb
+   hosts: wb
+   become: true
+   tasks:
+    - name: apache
+      service: name=apache2 state=started
+    - wait_for: port=80 
+
+ - name: For lb
+   hosts: lb
+   become: true
+   tasks:
+    - name: nginx
+      service: name=nginx state=started
+    - wait_for: port=80 
+
+
+ 
+        
+
+
+     

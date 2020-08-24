@@ -1,0 +1,13 @@
+---
+ - name: check
+   hosts: lb
+   
+   tasks:
+     - name: check
+       shell: ls /etc/nginx/sites-enabled
+       register: out
+
+     - name: print
+       debug: var={{ item }}
+       when: item not in sites
+       with_items: out.stdout_lines

@@ -1,0 +1,10 @@
+---
+ - name: to copy files
+   hosts: node1.ak2328.online
+   tasks:
+      - copy:
+          src: /home/ansadmin/ansible.cfg
+          dest: /home/ansadmin/
+      - debug:
+          msg: "Done"    
+

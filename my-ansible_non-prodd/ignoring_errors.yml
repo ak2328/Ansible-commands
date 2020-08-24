@@ -1,0 +1,19 @@
+---
+  - name: Ignoring errors
+    hosts: localhost
+    gather_facts: false
+    tasks:
+     - block:
+        - command: ls /home/ansadmin/my-ansible_non-prodd/demo
+          register: out1
+        - command: ls /home/ansadmin/my-ansible_non-prodd/newdemo
+          register: out2  
+        - command: ls  /home/ansadmin/my-ansible_non-prodd/telly
+          register: out3
+       
+          ignore_errors: yes
+
+     - debug: var=out1
+     - debug: var=out2        
+     - debug: var=out3
+        
